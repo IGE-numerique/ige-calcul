@@ -30,7 +30,7 @@ The below section explains a step by step process to creating and submitting a s
 
 Write your python script or compile your fortran code 
 
-**Example of Hello World in MPI _hello_mpi.f90_**
+**Example of Hello World in MPI `hello_mpi.f90`**
 
 ```
 PROGRAM hello_world_mpi
