@@ -53,7 +53,7 @@ END PROGRAM
 
 Compile the code using mpif90
 ```
-mpif90 -o hello_mpi  hello_mpi.f90`
+mpif90 -o hello_mpi  hello_mpi.f90
 ```
 Now you have an executable hello_mpi that you can run using slurm
 
@@ -65,4 +65,50 @@ Resource requests consist in a number of CPUs, computing expected duration, amou
 
 The typical way of creating a job is to write a submission script. A submission script is a shell script. If they are prefixed with SBATCH, are understood by Slurm as parameters describing resource requests and other submissions options. You can get the complete list of parameters from the sbatch manpage man sbatch.
 
-in this exemple job.sh contains ressources request (lines starting with #SBATCH) and a sleep unix command.
+in this exemple job.sh contains ressources request (lines starting with #SBATCH) and the run of the previous generated executable..
+
+```
+#!/bin/bash
+#SBATCH -J helloMPI 
+
+#SBATCH --nodes=1
+#SBATCH --ntasks=4
+#SBATCH --account=cryodyn
+
+#SBATCH --mem=4000
+
+#SBATCH --time=01:00:00
+#SBATCH --output helloMPI.%j.output
+#SBATCH --error  HelloMPI.%j.error
+
+srun  --mpi=pmix -n  4 ./hello_mpi
+
+```
+
+job.sh request 4 cores for 1 hour, along with 4000 MB of RAM, in the default queue. 
+the specified account is important in order to get statisticis` about the number of CPU hours consumed within the account
+make sure to be part of an acccount before submitting any jobs
+
+When started, the job would run the hello_mpi program using 4 cores in parallel 
+To run the job.sh script use sbatch command and squeue to see the state of the job
+
+```
+chekkim@ige-calcul1:~$ sbatch job.sh
+Submitted batch job 51
+chekkim@ige-calcul1:~$ squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                51    calcul helloMPI  chekkim  R       0:02      1 ige-calcul1
+```
+
+
+Interestingly, you can get near-realtime information about your running program (memory consumption, etc.) with the sstat command
+
+```
+sstat -j JOBID
+```
+
+It is possible to get informations and statistic about you job after they are finished using the **sacct/sreport** command (sacct -h for more`help)``
+
+```
+sacct  -j JOBID --format="Account,JobID,JobName,NodeList,CPUTime,MaxRSS,State%20"
+```
