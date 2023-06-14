@@ -60,13 +60,14 @@ Now you have an executable hello_mpi that you can run using slurm
 
 2. Create your submission job
 
-A job consists in two parts: resource requests and job steps.
+A job consists in two parts: **resource requests** and **job steps**.
 
-Resource requests consist in a number of CPUs, computing expected duration, amounts of RAM or disk space, etc. Job steps describe tasks that must be done, software which must be run.
+**Resource requests** consist in a number of CPUs, computing expected duration, amounts of RAM or disk space, etc.
+**Job steps** describe tasks that must be done, software which must be run.
 
-The typical way of creating a job is to write a submission script. A submission script is a shell script. If they are prefixed with SBATCH, are understood by Slurm as parameters describing resource requests and other submissions options. You can get the complete list of parameters from the sbatch manpage man sbatch.
+The typical way of creating a job is to write a submission script. A submission script is a shell script. If they are prefixed with SBATCH, are understood by Slurm as parameters describing resource requests and other submissions options. You can get the complete list of parameters from the sbatch manpage man sbatch or sbatch -h.
 
-in this exemple job.sh contains ressources request (lines starting with #SBATCH) and the run of the previous generated executable..
+In this example, job.sh contains ressources request (lines starting with #SBATCH) and the run of the previous generated executable.
 
 ```
 #!/bin/bash
@@ -80,7 +81,7 @@ in this exemple job.sh contains ressources request (lines starting with #SBATCH)
 
 #SBATCH --time=01:00:00
 #SBATCH --output helloMPI.%j.output
-#SBATCH --error  HelloMPI.%j.error
+#SBATCH --error  helloMPI.%j.error
 
 
 cd /workdir/$USER/
@@ -96,10 +97,10 @@ srun  --mpi=pmix -N 1  -n  4 ./hello_mpi
 ```
 
 job.sh request 4 cores for 1 hour, along with 4000 MB of RAM, in the default queue. 
-the specified account is important in order to get statisticis` about the number of CPU hours consumed within the account
-make sure to be part of an acccount before submitting any jobs
+The account is important in order to get statisticis about the number of CPU hours consumed within the account:
+_make sure to be part of an acccount before submitting any jobs_
 
-When started, the job would run the hello_mpi program using 4 cores in parallel 
+When started, the job would run the hello_mpi program using 4 cores in parallel. 
 To run the job.sh script use sbatch command and squeue to see the state of the job
 
 ```
@@ -126,7 +127,7 @@ Interestingly, you can get near-realtime information about your running program 
 sstat -j JOBID
 ```
 
-It is possible to get informations and statistics  about you job after they are finished using the **sacct/sreport** command (sacct -h for more`help)``
+It is possible to get informations and statistics  about you job after they are finished using the **sacct/sreport** command (sacct -h for more help)
 
 ```
 chekkim@ige-calcul1:~$ sacct  -j 51  --format="Account,JobID,JobName,NodeList,CPUTime,MaxRSS,State%20"
