@@ -55,9 +55,9 @@ Compile the code using mpif90
 ```
 mpif90 -o hello_mpi  hello_mpi.f90`
 ```
-Now you have an executable that you can run using slurm
+Now you have an executable hello_mpi that you can run using slurm
 
-1. Create your submission job
+2. Create your submission job
 
 A job consists in two parts: resource requests and job steps.
 
