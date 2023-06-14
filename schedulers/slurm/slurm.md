@@ -87,14 +87,11 @@ cd /workdir/$USER/
 
 ## Run an MPI program
 
-mpirun -np 4 ./hello_mpi
-# or (recommended)
 srun  --mpi=pmix -N 1  -n  4 ./hello_mpi
 
 
 ## Run a python script 
-
-#python script.py
+#  python script.py
 
 ```
 
@@ -112,12 +109,16 @@ chekkim@ige-calcul1:~$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                 51    calcul helloMPI  chekkim  R       0:02      1 ige-calcul1
 ```
-PS: When using interactive mode, it is mandatory to use  srun for python script and the adapted ressources
+3. Interactive mode
+
+
+For interactive mode  you should use the srun/salloc commands 
 An equivalent to the job.sh should be
 ```
 srun --mpi=pmix -n 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 hello_mpi
 ```
 
+4. Job Accounting 
 
 Interestingly, you can get near-realtime information about your running program (memory consumption, etc.) with the sstat command
 
