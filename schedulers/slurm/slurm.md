@@ -67,7 +67,7 @@ A job consists in two parts: **resource requests** and **job steps**.
 
 The typical way of creating a job is to write a submission script. A submission script is a shell script. If they are prefixed with SBATCH, are understood by Slurm as parameters describing resource requests and other submissions options. You can get the complete list of parameters from the sbatch manpage man sbatch or sbatch -h.
 
-In this example, job.sh contains ressources request (lines starting with #SBATCH) and the run of the previous generated executable.
+In this example, `job.sh` contains ressources request (lines starting with #SBATCH) and the run of the previous generated executable.
 
 ```
 #!/bin/bash
@@ -101,7 +101,7 @@ The account is important in order to get statisticis about the number of CPU hou
 _make sure to be part of an acccount before submitting any jobs_
 
 When started, the job would run the hello_mpi program using 4 cores in parallel. 
-To run the job.sh script use sbatch command and squeue to see the state of the job
+To run the `job.sh` script use sbatch command and squeue to see the state of the job
 
 ```
 chekkim@ige-calcul1:~$ sbatch job.sh
@@ -114,7 +114,7 @@ chekkim@ige-calcul1:~$ squeue
 
 
 For interactive mode  you should use the srun/salloc commands 
-An equivalent to the job.sh should be
+An equivalent to the `job.sh` should be
 ```
 srun --mpi=pmix -n 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 hello_mpi
 ```
@@ -138,5 +138,5 @@ chekkim@ige-calcul1:~$ sacct  -j 51  --format="Account,JobID,JobName,NodeList,CP
    cryodyn 51.0          hello_mpi     ige-calcul1   00:00:12      3564K            COMPLETED
 
 
-**MaxRSS**: Maximum RAM used by the job, you can also get the MAximum RAM used by a given task
+`MaxRSS`: Maximum RAM used by the job, you can also get the MAximum RAM used by a given task
 ```
