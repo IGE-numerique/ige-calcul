@@ -25,12 +25,13 @@ Consider you have a script in one of the programming languages such as Python, M
 
 The below section explains a step by step process to creating and submitting a simple job. Also, the SBATCH script is created and used for the execution of a python script or fortran code.
 
-1.  Prepare your code/script
+1. Prepare your code/script
 
 Write your python script or compile your fortran code 
 
 **Example of Hello World in MPI _hello_mpi.f90_**
 
+```
 PROGRAM hello_world_mpi
 include 'mpif.h'
 
@@ -48,9 +49,13 @@ print *, 'Hello World from process: ', PNAME(1:RESULTLEN)
 
 call MPI_FINALIZE(ierror)
 END PROGRAM
+```
 
-`
+Compile the code using mpif90
+```
 mpif90 -o hello_mpi  hello_mpi.f90`
+```
+Now you have an executable that you can run using slurm
 
 1. Create your submission job
 
