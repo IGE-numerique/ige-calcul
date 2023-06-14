@@ -81,7 +81,10 @@ in this exemple job.sh contains ressources request (lines starting with #SBATCH)
 #SBATCH --output helloMPI.%j.output
 #SBATCH --error  HelloMPI.%j.error
 
-srun  --mpi=pmix -n  4 ./hello_mpi
+
+cd /workdir/$USER/
+
+srun  --mpi=pmix -N 1  -n  4 ./hello_mpi
 
 ```
 
@@ -100,15 +103,22 @@ chekkim@ige-calcul1:~$ squeue
                 51    calcul helloMPI  chekkim  R       0:02      1 ige-calcul1
 ```
 
-
 Interestingly, you can get near-realtime information about your running program (memory consumption, etc.) with the sstat command
 
 ```
 sstat -j JOBID
 ```
 
-It is possible to get informations and statistic about you job after they are finished using the **sacct/sreport** command (sacct -h for more`help)``
+It is possible to get informations and statistics  about you job after they are finished using the **sacct/sreport** command (sacct -h for more`help)``
 
 ```
-sacct  -j JOBID --format="Account,JobID,JobName,NodeList,CPUTime,MaxRSS,State%20"
+chekkim@ige-calcul1:~$ sacct  -j 51  --format="Account,JobID,JobName,NodeList,CPUTime,MaxRSS,State%20"
+   Account        JobID    JobName        NodeList    CPUTime     MaxRSS                State
+---------- ------------ ---------- --------------- ---------- ---------- --------------------
+   cryodyn 51             helloMPI     ige-calcul1   00:00:20                       COMPLETED
+   cryodyn 51.batch          batch     ige-calcul1   00:00:20       132K            COMPLETED
+   cryodyn 51.0          hello_mpi     ige-calcul1   00:00:12      3564K            COMPLETED
+
+
+**MaxRSS**: Maximum RAM used by the job, you can also get the MAximum RAM used by a given task
 ```
