@@ -6,6 +6,18 @@ Slurm is an open-source workload manager/scheduler for the Discovery cluster. Sl
 __https://slurm.schedmd.com/quickstart.html__
 
 
+## Connection to the server
+
+Before using slurm, make sure that your are able to connect to the server
+
+```
+ssh   your_agalan_login@ige-calcul1.u-ga.fr
+```
+
+Then you should ask for a storage space and a slurm account
+
+Please send and email to `ige-ssi-asr@univ-grenoble-alpes.fr`, asking for storage under /workdir and an account by providing the name of your team
+
 ## Commands
 
 
@@ -138,5 +150,5 @@ chekkim@ige-calcul1:~$ sacct  -j 51  --format="Account,JobID,JobName,NodeList,CP
    cryodyn 51.0          hello_mpi     ige-calcul1   00:00:12      3564K            COMPLETED
 
 
-`MaxRSS`: Maximum RAM used by the job, you can also get the MAximum RAM used by a given task
+**MaxRSS: Maximum RAM used by the job, you can also get the MAximum RAM used by a given task
 ```
