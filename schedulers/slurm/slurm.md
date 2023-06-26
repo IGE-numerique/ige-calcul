@@ -16,6 +16,18 @@ ssh   your_agalan_login@ige-calcul1.u-ga.fr
 
 Then you should ask for a storage space and a slurm account
 
+Available slurm accounts are:
+```
+cryodyn
+meom
+phyrev
+hmcis
+hydrimz
+c2h
+ecrins
+ice3
+chianti
+```
 Please send and email to `ige-ssi-asr@univ-grenoble-alpes.fr`, asking for storage under /workdir and a slurm account by providing the name of your team and the space you need (1G,10G,100G,1TB)
 
 ## Commands
