@@ -28,7 +28,7 @@ ecrins
 ice3
 chianti
 ```
-Please send and email to `mondher.chekki@uXXXX-gYYYY-aZZZZ.fr`, asking for storage under /workdir and a slurm account by providing the name of your team and the space you need (1G,10G,100G,1TB)
+Please send and email to `mondher.chekki@uXXXX-gYYYY-aZZZZ.fr OR ige-ssi-asr@uXXXX-gYYYY-aZZZZ.fr, asking for storage under /workdir and a slurm account by providing the name of your team and the space you need (1G,10G,100G,1TB)
 
 ## Commands
 
@@ -142,8 +142,35 @@ An equivalent to the `job.sh` should be
 ```
 srun --mpi=pmix -n 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 hello_mpi
 ```
+4.  For Python users
 
-4. Job Accounting 
+   You should use micromamba instead of conda/miniconda 
+   https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html
+   Micromamba is just faster then conda
+   
+```
+   # Download micromamba
+
+curl -L micro.mamba.pm/install.sh >install.sh
+
+# Installation de micromamba
+
+bash install.sh
+
+source ~/.bashrc
+
+# Creation d’un environnment avec python=3.10
+
+micromamba create -n myenv python=3.10 -c conda-forge
+
+# Activation de l’environnement
+
+micromamba activate myenv
+
+micromamba install YOUR_MODULE -c conda-forge
+```
+
+5. Job Accounting 
 
 Interestingly, you can get near-realtime information about your running program (memory consumption, etc.) with the sstat command
 
