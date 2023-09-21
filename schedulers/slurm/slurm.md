@@ -28,7 +28,7 @@ ecrins
 ice3
 chianti
 ```
-Please send and email to `mondher.chekki@univ-grenoble-alpes.fr`, asking for storage under /workdir and a slurm account by providing the name of your team and the space you need (1G,10G,100G,1TB)
+Please send and email to `mondher.chekki@uXXXX-gYYYY-aZZZZ.fr`, asking for storage under /workdir and a slurm account by providing the name of your team and the space you need (1G,10G,100G,1TB)
 
 ## Commands
 
