@@ -16,7 +16,7 @@ A --> G(dahu-fat4);
 A --> H(dahu-visu);
 ```
   
-1. Create an ssh key  
+**Create an ssh key**
 ```  
 ssh-keygen -t rsa
 ```  
@@ -26,7 +26,7 @@ Type **Enter** twice WITHOUT ENTERING ANY PASSWORD and you should have two keys 
 a private key: id_rsa  
 a public key: id_rsa.pub  
 
-2. Create config file
+**Create config file**
 
 
 Then create the $HOME/.ssh/config file on your computer , in which you must enter the bastion and server information for the connection.
