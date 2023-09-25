@@ -1,6 +1,15 @@
 
 ## Connect to Gricad clusters
-  
+
+  ```mermaid
+graph LR
+A[f-dahu] --> B(dahu33)
+A --> C(........)
+A --> D(dahu192)
+A --> E(dahu-fat1)
+A --> F(............)
+A --> G(dahu-fat4)
+A --> H(dahu-visu)
   
 1. Create an ssh key  
 ```  
