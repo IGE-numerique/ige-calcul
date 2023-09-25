@@ -1,6 +1,10 @@
 
 ## Connect to Gricad clusters
 
+More details about Griccad infrastructure are available here:
+
+**https://gricad-doc.univ-grenoble-alpes.fr/hpc/**
+
   ```mermaid
 graph TD;
 A[f-dahu] --> B(dahu33);
@@ -160,9 +164,11 @@ oarsub -S ./job_exemple.oar
 ```
 **Use the interactive mode**
 
-If you are developping a code, it is better to have acces to  node for debugging issues. In the passive mode , if you make a small mistake , then you  have to submit your job again and wait in the queue.
-Using the interactive mode allows to correct your mistake and run your code until you make sure that everything is working fine
-To do that use **oarsub** with **-I** command
+If you are developping a code, it is better to have acces to a node for debugging issues. In the passive mode , if you make a small mistake , then you  have to submit your job again and wait in the queue.
+Using the interactive mode allows to correct your mistake and run your code until you make sure that everything is working fine.
+
+To do that use **oarsub** with **-I** command:
+
 ```
 oarsub -I -l nodes=1/core=1,walltime=01:30:00 --project sno-elmerice 
 ```
@@ -176,9 +182,24 @@ oarsub -I -l nodes=1/core=1,walltime=04:30:00 --project sno-elmerice -t fat
 ```
 
 **Workdir/Datastorage on dahu** 
+
+ ```mermaid
+graph TD;
+A[dahu node] --> B(/bettik);
+A --> C(/silenus);
+A --> D(/mantis);
+```
+
   
 You have access to the $HOME(/home/your_login), which is a limited space under quota (50GB max).  
-You must work on /bettik/login_gricad. This space is accessible to all nodes.  
+
+You must work on /bettik/login_gricad,  /bettik/PROJECTS/PROJECT_NAME/login_gricad or /bettik/PROJECTS/PROJECT_NAME/COMMON if you want to share you data/code between the members of the project 
+
+/bettik is a parallel filesystem so it is very fast when it comes to write/read data by the same program with different tasks
+
+This space is accessible to all nodes. 
+
+Mre info on Gricad Website
   
 [https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/bettik/](https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/bettik/)  
   
@@ -187,7 +208,8 @@ To copy data from your PC to /bettik, use the rsync command.
   
 Let's imagine we have a folder: Data_Model  
   
-We'd like to copy this folder to /bettik/login_gricad to be able to work on it or write data to it.  
+We'd like to copy this folder to /bettik/login_gricad to be able to work on it or write data to it. 
+
   
 The copy is made with the command:  
   ```
@@ -202,3 +224,27 @@ rsync -rav dahu:/bettik/login_gricad/Dossier_bettik .
  ```
 rsync -rav dahu:/bettik/login_gricad/Dossier_bettik/ Local_folder/
 ```
+**WARNING**: if you want to transfer huge data or a lot of files use mantis-cargo instead 
+
+https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/data_transfer/
+
+Replace dahu per mantis-cargo.u-ga.fr
+
+```
+rsync -rav Data_Model login_gricad@mantis-cargo.u-ga.fr:/bettik/login_gricad/
+```
+
+**Other Datastorage available  on dahu /silenus /mantis** 
+
+Silenus is a parallel filesystem composed of SSD so it is very fast but consider this as a scratch as the files will be automatically deleted when they reach 60 days old.
+So If you need to save them, you have  to copy them to /bettik workdir for short term preservation, or to the Mantis2 cloud storage for long term preservation.
+```
+     WARNING: if your files are only accessed in read mode, and you still use them, you
+     should do a `touch <file>` or `touch -r <directory>` to update the change time as
+     HPC scratches do not update the access time.
+     Otherwise, they may be deleted 60 days after their creation.
+```
+Mantis 
+https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/mantis/
+
+
