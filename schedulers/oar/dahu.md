@@ -190,7 +190,6 @@ A --> C(/silenus);
 A --> D(/mantis);
 ```
 
-  
 You have access to the $HOME(/home/your_login), which is a limited space under quota (50GB max).  
 
 You must work on /bettik/login_gricad,  /bettik/PROJECTS/PROJECT_NAME/login_gricad or /bettik/PROJECTS/PROJECT_NAME/COMMON if you want to share you data/code between the members of the project 
@@ -233,9 +232,7 @@ Replace dahu per mantis-cargo.u-ga.fr
 ```
 rsync -rav Data_Model login_gricad@mantis-cargo.u-ga.fr:/bettik/login_gricad/
 ```
-
 **Other Datastorage available  on dahu /silenus /mantis** 
-
 Silenus is a parallel filesystem composed of SSD so it is very fast but consider this as a scratch as the files will be automatically deleted when they reach 60 days old.
 So If you need to save them, you have  to copy them to /bettik workdir for short term preservation, or to the Mantis2 cloud storage for long term preservation.
 ```
@@ -244,7 +241,7 @@ So If you need to save them, you have  to copy them to /bettik workdir for short
      HPC scratches do not update the access time.
      Otherwise, they may be deleted 60 days after their creation.
 ```
-Mantis 
+Mantis is a cloud storage used for long term preservation
 https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/mantis/
 
 
