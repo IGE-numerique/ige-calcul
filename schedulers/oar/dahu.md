@@ -199,8 +199,8 @@ You must work on /bettik/login_gricad,  /bettik/PROJECTS/PROJECT_NAME/login_gric
 This space is accessible to all nodes. 
 
 Mre info on Gricad Website
-  
-[https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/bettik/](https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/bettik/)  
+
+https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/bettik/
   
   
 To copy data from your PC to /bettik, use the rsync command.  
@@ -215,7 +215,7 @@ The copy is made with the command:
 rsync -rav Data_Model dahu:/bettik/login_gricad/  
   ```
 To copy data from dahu to your PC:  
-- To copy ( becareful there's the dot . which means copy here)  
+- To copy ( b ecareful there's the dot . which means copy here)  
  ```
 rsync -rav dahu:/bettik/login_gricad/Dossier_bettik .  
 ```
@@ -232,15 +232,20 @@ Replace dahu per mantis-cargo.u-ga.fr
 ```
 rsync -rav Data_Model login_gricad@mantis-cargo.u-ga.fr:/bettik/login_gricad/
 ```
-**Other Datastorage available  on dahu /silenus /mantis** 
+**Other Datastorage available  on dahu: /silenus and /mantis** 
+
 Silenus is a parallel filesystem composed of SSD so it is very fast but consider this as a scratch as the files will be automatically deleted when they reach 60 days old.
-So If you need to save them, you have  to copy them to /bettik workdir for short term preservation, or to the Mantis2 cloud storage for long term preservation.
+
+https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/silenus/
+
+So If you need to save them, you have  to copy them to /bettik workdir for short term preservation(<1an), or to the Mantis2 cloud storage for long term preservation(<5ans).
 ```
      WARNING: if your files are only accessed in read mode, and you still use them, you
      should do a `touch <file>` or `touch -r <directory>` to update the change time as
      HPC scratches do not update the access time.
      Otherwise, they may be deleted 60 days after their creation.
 ```
+
 Mantis is a cloud storage used for long term preservation
 https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/mantis/
 
