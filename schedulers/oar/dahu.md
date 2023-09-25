@@ -77,6 +77,36 @@ An introduction to OAR is described here
 Basically, to perform computations, you don't have to do them on the server you're connected to (front-end), but on other servers (compute nodes) accessible from the front-end.
   
 Hence the use of a job scheduler (OAR) to launch calculations on the nodes.  
+
+For example, let's say that you need to run R calculations on the server
+
+Either use nix/guix environement 
+
+**Nix:**
+https://gricad-doc.univ-grenoble-alpes.fr/hpc/softenv/nix/#r-packages
+
+**Guix:**
+https://gricad-doc.univ-grenoble-alpes.fr/hpc/softenv/guix/
+
+Or **conda/micromamba** : **micromamba** is faster
+
+```
+# Download micromamba
+curl –L micro.mamba.pm/install.sh >install.sh
+# Installation de micromamba
+bash install.sh 
+source ~/.bashrc
+# Create an environement with python=3.10
+micromamba create -n Renv python=3.10 -c conda-forge
+# Activate the environement
+micromamba activate Renv
+# Install  R+package netcdf
+micromamba install r –c conda-forge
+micromamba install r-essentials –c conda-forge
+micromamba install r-ncdf4 –c conda-forge
+# Installation jupyter
+micromamba install jupyter –c conda-forge
+```
 Here's an example of a job header:
 Change the name of project to your project  
 ```
@@ -89,8 +119,10 @@ $ cat job_exemple.oar
 #OAR --project sno-elmerice
 #OAR -l nodes=1/core=1,walltime=01:30:00  
   
-cd YOUR_WORKING_DIRECTORY  
-./EXECUTABLE  
+cd YOUR_WORKING_DIRECTORY
+micromamba activate Renv
+
+R CMD BATCH ....
 
 ```
   
