@@ -10,6 +10,8 @@ If you run vscode from you home directory, it has access to the config file so i
 
 **on dahu node**
 
+Once you get the ressource on dahu, you will probably need to run your python code or R code interactively, either you are using a linux terminal(mobaxterm/putty) or you can do this using vscode specially if you have a windows machine
+
 Config ssh-keys on dahu 
 
 ```
