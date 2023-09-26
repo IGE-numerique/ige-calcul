@@ -24,7 +24,7 @@ ssh-keygen -t rsa
 Type **Enter** twice WITHOUT ENTERING ANY PASSWORD and you should have two keys in $HOME/.ssh  
   
 a private key: id_rsa  
-a public key: id_rsa.pub  
+a public key : id_rsa.pub  
 
 **Create config file**
 
@@ -33,7 +33,7 @@ Then create the $HOME/.ssh/config file on your computer , in which you must ente
 
 replace login_gricad with yours 
   
-For the Dahu server:  
+For Dahu server:  
   
   ```
 Host dahu  
@@ -55,15 +55,16 @@ Then, copy the ssh keys
 ssh-copy-id login_gricad@trinity.u-ga.fr 
   ```
  
-Enter the passwod  
+Enter the agalan passwod  
+
 then  
  ```
 ssh-copy-id dahu
 ```
   
-Enter the password  
+Enter the agalan password  
   
-and you should be good to go for future sessions.  
+and you should be good for future sessions.  
   
 Now, to connect, just type  
  ``` 
@@ -71,16 +72,20 @@ ssh dahu
 ```
 
 Once you are connected to dahu, you will be able to run jobs with the scheduler named OAR 
+
 An introduction to OAR is described here  
-[https://gricad-doc.univ-grenoble-alpes.fr/hpc/joblaunch/job_management/](https://gricad-doc.univ-grenoble-alpes.fr/hpc/joblaunch/job_management/)  
+
+https://gricad-doc.univ-grenoble-alpes.fr/hpc/joblaunch/job_management
 
 Basically, to perform computations, you don't have to do them on the server you're connected to (front-end), but on other servers (compute nodes) accessible from the front-end.
   
-Hence the use of a job scheduler (OAR) to launch calculations on the nodes.  
+Hence you need to use a job scheduler (OAR) to launch calculations on the nodes.  
 
 For example, let's say that you need to run R calculations on the server
 
-Either use nix/guix environement 
+To install R packages
+
+Either use **nix/guix** environement  
 
 **Nix:**
 https://gricad-doc.univ-grenoble-alpes.fr/hpc/softenv/nix/#r-packages
@@ -123,6 +128,7 @@ cd YOUR_WORKING_DIRECTORY
 micromamba activate Renv
 
 R CMD BATCH ....
+Rscript ....
 
 ```
   
@@ -226,11 +232,11 @@ You have access to the $HOME(/home/your_login), which is a limited space under q
 
 You must work on /bettik/login_gricad,  /bettik/PROJECTS/PROJECT_NAME/login_gricad or /bettik/PROJECTS/PROJECT_NAME/COMMON if you want to share you data/code between the members of the project 
 
-/bettik is a parallel filesystem so it is very fast when it comes to write/read data by the same program with different tasks
+Bettik is a parallel filesystem so it is very fast when it comes to write/read data by the same program with different tasks
 
 This space is accessible to all nodes. 
 
-Mre info on Gricad Website
+More info on Gricad Website
 
 https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/bettik/
   
@@ -239,22 +245,28 @@ To copy data from your PC to /bettik, use the rsync command.
   
 Let's imagine we have a folder: Data_Model  
   
-We'd like to copy this folder to /bettik/login_gricad to be able to work on it or write data to it. 
+We'd like to copy this folder to /bettik/login_gricad in order to use the data. 
 
   
-The copy is made with the command:  
+The copy is made with the command rsync: 
+
   ```
 rsync -rav Data_Model dahu:/bettik/login_gricad/  
   ```
+
 To copy data from dahu to your PC:  
-- To copy ( b ecareful there's the dot . which means copy here)  
+
+( be careful there's the dot . which means copy here)  
  ```
 rsync -rav dahu:/bettik/login_gricad/Dossier_bettik .  
 ```
-- If you have a local folder called Local_folder to which you want to copy data from /bettik  
+
+If you have a local folder called Local_folder to which you want to copy data from /bettik  
+
  ```
 rsync -rav dahu:/bettik/login_gricad/Dossier_bettik/ Local_folder/
 ```
+
 **WARNING**: if you want to transfer huge data or a lot of files use mantis-cargo instead 
 
 https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/data_transfer/
@@ -264,6 +276,7 @@ Replace dahu per mantis-cargo.u-ga.fr
 ```
 rsync -rav Data_Model login_gricad@mantis-cargo.u-ga.fr:/bettik/login_gricad/
 ```
+
 **Other Datastorage available  on dahu: /silenus and /mantis** 
 
 Silenus is a parallel filesystem composed of SSD so it is very fast but consider this as a scratch as the files will be automatically deleted when they reach 60 days old.
