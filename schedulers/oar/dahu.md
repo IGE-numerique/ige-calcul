@@ -293,4 +293,15 @@ So If you need to save them, you have  to copy them to /bettik workdir for short
 Mantis is a cloud storage used for long term preservation
 https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/mantis/
 
+**/home OR /bettik OR /silenus OR /mantis , how to choose**
+
+As the /home is backuped (saved), you should put here all your scripts, code in python/bash/fortran/R , etc that you need to keep. 
+You should also think about using github or [Gricad gitlab](https://gricad-gitlab.univ-grenoble-alpes.fr/users/sign_in) to commit you changes and keep your codes up to date
+
+**/bettik** should be used by default  for all your simulations as you have a large quota and your data is not cleaned.
+
+**/silenus** should be tested with your workflow and see if the access to data is faster and  in this case re-organise you workflow to move your data older than 60 days from silenus
+
+**/mantis**  is used in case you have **cold data** on /bettik that you are not going to use for a while ( let say < 6 months) but you need this data for future simulations
+
 
