@@ -6,7 +6,7 @@ cf [SSH-keys](https://github.com/IGE-numerique/ige-calcul/blob/main/schedulers/o
 
 **on dahu**
 
-If you run vscode from you home directory, it has access to the config file so it sees the dahu config, just select dahu
+If you run vscode from you home directory, it has access to the config file so it sees the dahu config, just select dahu. You will be connected to dahu front node, and you should be to open your files/save them and submit a job from vscode terminal
 
 **on dahu node**
 
