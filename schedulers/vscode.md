@@ -12,7 +12,12 @@ If you run vscode from you home directory, it has access to the config file so i
 
 Once you get the ressource on dahu, you will probably need to run your python code or R code interactively, either you are using a linux terminal(mobaxterm/putty) or you can do this using vscode specially if you have a windows machine
 
-Config ssh-keys on dahu 
+Of course all **these steps are not necessary**, you can just open a new terminal once you are connect to dahu  with vscode and use oarsub to request the ressource ans continue on the terminal
+
+The following steps are more adapted to people who are not familiar with linux editing text as vi/vim and would like to work in a windows style, directly from vscode
+
+
+**Config ssh-keys on dahu**
 
 ```
 ssh-keygen -t rsa
