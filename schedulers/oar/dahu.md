@@ -109,8 +109,7 @@ micromamba activate Renv
 micromamba install r –c conda-forge
 micromamba install r-essentials –c conda-forge
 micromamba install r-ncdf4 –c conda-forge
-# Installation jupyter
-micromamba install jupyter –c conda-forge
+
 ```
 Here's an example of a job header:
 Change the name of project to your project  
@@ -243,7 +242,7 @@ https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/bettik/
   
 To copy data from your PC to /bettik, use the rsync command.  
   
-Let's imagine we have a folder: Data_Model  
+Let's assume we have a folder: Data_Model  
   
 We'd like to copy this folder to /bettik/login_gricad in order to use the data. 
 
