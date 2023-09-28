@@ -228,7 +228,7 @@ https://gricad-dashboards.univ-grenoble-alpes.fr/d/RUyeEaIGz/colmet-dahu-jobs-st
 
 Here is an example of Memory usage for different nodes
 
-![Dashbord Memory usage example](images/nodedahu153RSS.PNG)
+![Dashbord Memory usage example](../../images/nodedahu153RSS.PNG)
 
 
 **Workdir/Datastorage on dahu** 
