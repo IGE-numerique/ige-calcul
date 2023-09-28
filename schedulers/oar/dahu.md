@@ -224,6 +224,8 @@ Once your job is finished or in case it stops without any reasons, you can check
 
 https://gricad-dashboards.univ-grenoble-alpes.fr/d/RUyeEaIGz/colmet-dahu-jobs-stats?orgId=1&refresh=1h&var-Job_ID=**MYJOBID**&var-Node=All
 
+![Dashbord Memory usage example](../../images/nodedahu153RSS.PNG)
+
 **Workdir/Datastorage on dahu** 
 
  ```mermaid
