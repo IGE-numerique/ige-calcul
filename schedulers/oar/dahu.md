@@ -217,6 +217,13 @@ for fat nodes
 ```
 oarsub -I -l nodes=1/core=1,walltime=04:30:00 --project sno-elmerice -t fat
 ```
+**Job Stats with OAR**
+
+Once your job is finished or in case it stops without any reasons, you can check the dashborad
+
+https://gricad-dashboards.univ-grenoble-alpes.fr/d/RUyeEaIGz/colmet-dahu-jobs-stats?orgId=1&refresh=1h&var-Job_ID=**MYJOBID**&var-Node=All
+
+
 
 **Workdir/Datastorage on dahu** 
 
