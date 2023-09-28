@@ -222,7 +222,11 @@ oarsub -I -l nodes=1/core=1,walltime=04:30:00 --project sno-elmerice -t fat
 
 Once your job is finished or in case it stops without any reasons, you can check the dashborad
 
+> :warning: **Replace MYJOBID with your JOBID**:
+
 https://gricad-dashboards.univ-grenoble-alpes.fr/d/RUyeEaIGz/colmet-dahu-jobs-stats?orgId=1&refresh=1h&var-Job_ID=**MYJOBID**&var-Node=All
+
+Here is an example of Memory usage for different nodes
 
 ![Dashbord Memory usage example](images/nodedahu153RSS.PNG)
 
