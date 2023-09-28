@@ -291,7 +291,40 @@ So If you need to save them, you have  to copy them to /bettik workdir for short
 ```
 
 Mantis is a cloud storage used for long term preservation
+
+**First usage**
+Copy this file to your $HOME/.irods directory on dahu, keep the same name  and put your login instead of chekkim
+```
+[f-dahu  /home/chekkim ]$  more .irods/irods_environment.json
+{
+        "irods_host": "mantis.u-ga.fr",
+        "irods_port": 1247,
+        "irods_user_name": "chekkim",
+        "irods_zone_name": "mantis",
+        "irods_authentication_scheme": "PAM",
+        "irods_ssl_ca_certificate_file": "/etc/irods/chain.pem",
+        "irods_ssl_verify_server": "cert"
+}
+```
+
+and then connect using iinit
+```
+f-dahu  /home/chekkim ]$  iinit
+Enter your current PAM password:
+[f-dahu  /home/chekkim ]$  ils
+/mantis/home/chekkim:
+  bench_v1.tar
+  elmerscalasca.tar
+  netcdf-cxx4-4.3.1.tar.gz
+  C- /mantis/home/chekkim/MARin
+  C- /mantis/home/chekkim/input
+  C- /mantis/home/chekkim/python
+```
+Enter your agalan password and you should be able to copy/get files to your mantis workspace using iget and iput commands
+
+More details , here:
 https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/mantis/
+
 
 **/home OR /bettik OR /silenus OR /mantis , how to choose**
 
