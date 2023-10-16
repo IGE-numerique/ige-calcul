@@ -30,6 +30,15 @@ chianti
 ```
 Please send and email to `mondher.chekki@uXXXX-gYYYY-aZZZZ.fr OR ige-support@uXXXX-gYYYY-aZZZZ.fr, asking for storage under /workdir and a slurm account by providing the name of your team and the space you need (1G,10G,100G,1TB)
 
+## Available softwares
+
+```
+- NCO
+- CDO
+- FERRET
+- NCVIEW
+
+```
 ## Commands
 
 
