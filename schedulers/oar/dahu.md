@@ -5,6 +5,22 @@ More details about Griccad infrastructure are available here:
 
 **https://gricad-doc.univ-grenoble-alpes.fr/hpc/**
 
+**Get your account on Gricad**
+
+If you have an **agalan** login/password
+
+https://perseus.univ-grenoble-alpes.fr/create-account/portal-agalan
+
+if not, create an external account with the email from your institution (private email @gmail/@yahoo are not allowed)
+
+https://perseus.univ-grenoble-alpes.fr/create-account/form
+
+Once you created your account, you should receive an email from perseus that asks you to validate your account with a **KEY** provided in the email
+
+Connect again to perseus and enter the provided **KEY* et it should be ok.
+
+It should take 1 day to get your account activated. If you nee a rapid accesss, feel free to contact **mondher.chekki@XXXXX**
+
   ```mermaid
 graph TD;
 A[f-dahu] --> B(dahu33);
