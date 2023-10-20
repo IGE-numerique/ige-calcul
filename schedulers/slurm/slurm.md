@@ -149,8 +149,20 @@ chekkim@ige-calcul1:~$ squeue
 
 For interactive mode  you should use the srun/salloc commands 
 An equivalent to the `job.sh` should be
+
 ```
+Run mpi hello example with 4 cores
+
 srun --mpi=pmix -n 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 hello_mpi
+
+Run Qgis with 8 threads
+
+srun --mpi=pmix -n 1 -c 8 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 qgis
+
+Run Jupiter notebook with 4 threads
+
+srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 jupyter notebook
+
 ```
 4.  For Python users
 
