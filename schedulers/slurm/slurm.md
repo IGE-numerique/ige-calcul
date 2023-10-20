@@ -37,6 +37,7 @@ Please send and email to `mondher.chekki@uXXXX-gYYYY-aZZZZ.fr OR ige-support@uXX
 - CDO
 - FERRET
 - NCVIEW
+- QGIS
 
 ```
 ## Commands
