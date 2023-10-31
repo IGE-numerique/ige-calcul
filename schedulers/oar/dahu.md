@@ -17,7 +17,7 @@ https://perseus.univ-grenoble-alpes.fr/create-account/form
 
 Once you created your account, you should receive an email from perseus that asks you to validate your account with a **KEY** provided in the email
 
-Connect again to perseus and enter the provided **KEY* et it should be ok.
+Connect again to perseus and enter the provided **KEY** et it should be ok.
 
 It should take 1 day to get your account activated. If you nee a rapid accesss, feel free to contact **mondher.chekki@XXXXX**
 
@@ -37,7 +37,7 @@ A --> H(dahu-visu);
 ssh-keygen -t rsa
 ```  
  
-Type **Enter** twice WITHOUT ENTERING ANY PASSWORD and you should have two keys in $HOME/.ssh  
+Type **Enter** twice WITHOUT ENTERING ANY PASSWORD and you should have two keys in **$HOME/.ssh**  
   
 a private key: id_rsa  
 a public key : id_rsa.pub  
@@ -45,7 +45,7 @@ a public key : id_rsa.pub
 **Create config file**
 
 
-Then create the $HOME/.ssh/config file on your computer , in which you must enter the bastion and server information for the connection.
+Then create the **$HOME/.ssh/config** file on your computer , in which you must enter the bastion and server information for the connection.
 
 replace login_gricad with yours 
   
