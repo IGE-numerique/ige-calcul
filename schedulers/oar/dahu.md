@@ -383,6 +383,12 @@ Once connect to dahu, first install the intel compilers
 source /applis/site/nix_nur.sh
 nix-env -i -A nur.repos.gricad.intel-oneapi
 ```
+In case the previous command does not work, or generates erros , you can install intel compilers from my profile
+
+```
+nix-env -i --from-profile /nix/var/nix/profiles/per-user/chekkim/env_inteloneapi intel-oneapi
+```
+
 Once the intel compilers installed, in order to use them
 
 ```
