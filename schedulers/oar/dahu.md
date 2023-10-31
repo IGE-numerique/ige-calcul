@@ -421,9 +421,9 @@ And it should be ok. In order to acces other versions of elmer you can check it 
 module avail elmerfem
 ```
 
-In order to get rid of the old module, you need to modify your .bashr or your config file
+In order to get rid of the old module, you need to modify your **$HOME.bashrc** or your config file
 
-In order to test it on a terminal:  this will not change the version you put on the .bashrc or config file, but only affects the terminal you are using
+In order to test it on a terminal:  this will not change the version you put on the **$HOME/.bashrc** or config file, but only affects the terminal you are using
 
 ```
 module unload elmerfem
