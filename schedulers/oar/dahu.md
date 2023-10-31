@@ -86,6 +86,7 @@ Now, to connect, just type
  ``` 
 ssh dahu
 ```
+## Running jobs on Gricad clusters
 
 Once you are connected to dahu, you will be able to run jobs with the scheduler named OAR 
 
@@ -247,6 +248,8 @@ Here is an example of Memory usage for different nodes
 ![Dashbord Memory usage example](../../images/nodedahu153RSS.PNG)
 
 
+## Storage on Gricad clusters
+
 **Workdir/Datastorage on dahu** 
 
  ```mermaid
@@ -295,7 +298,7 @@ If you have a local folder called Local_folder to which you want to copy data fr
 rsync -rav dahu:/bettik/login_gricad/Dossier_bettik/ Local_folder/
 ```
 
-**WARNING**: if you want to transfer huge data or a lot of files use mantis-cargo instead 
+>:warning: : if you want to transfer huge data or a lot of files use mantis-cargo instead 
 
 https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/data_transfer/
 
@@ -313,7 +316,7 @@ https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/silenus/
 
 So If you need to save them, you have  to copy them to /bettik workdir for short term preservation(<1an), or to the Mantis2 cloud storage for long term preservation(<5ans).
 ```
-     WARNING: if your files are only accessed in read mode, and you still use them, you
+     >:warning:  if your files are only accessed in read mode, and you still use them, you
      should do a `touch <file>` or `touch -r <directory>` to update the change time as
      HPC scratches do not update the access time.
      Otherwise, they may be deleted 60 days after their creation.
@@ -370,5 +373,63 @@ You should also think about using github or [Gricad gitlab](https://gricad-gitla
 **/silenus** should be tested with your workflow and see if the access to data is faster and  in this case re-organise you workflow to move your data older than 60 days from silenus
 
 **/mantis**  is used in case you have **cold data** on /bettik that you are not going to use for a while ( let say < 6 months) but you need this data for future simulations
+
+
+## Elmer usage on Gricad clusters
+
+Once connect to dahu, first install the intel compilers
+
+```
+source /applis/site/nix_nur.sh
+nix-env -i -A nur.repos.gricad.intel-oneapi
+```
+Once the intel compilers installed, in order to use them
+
+```
+source /applis/site/nix_nur.sh
+source ~/.nix-profile/setvars.sh >/dev/null
+```
+
+In order to load Elmer modules , you have to put this on a config file **myconfig.sh** or in your **$HOME/.bashrc** and source it each time you need to use it
+>:warning: If you put this in your .bashrc , it will be sourced automatically but may create conflict with other applications
+
+```
+source /applis/site/nix_nur.sh
+source ~/.nix-profile/setvars.sh >/dev/null
+ . /home/chekkim/LibGlace/versions/modules/modules_rev4401cc7d_gnu6.3.0/init/bash
+export MODULEPATH=/home/chekkim/LibGlace/modulefiles
+module load  netcdf/netcdf-4.7.2_intel21_hdf5_MPIO  xios/xios-2.0_rev2320_intel21    elmerfem/elmerfem-22c2e6b30_intel21
+```
+
+then
+
+```
+source $HOME/.bashrc
+or
+source  myconfig.sh
+```
+
+For the intel compilers you need to add this in your **$HOME/.bashrc** file in order to avoid seg fault errors when running jobs across nodes
+
+```
+ulimit -s unlimited
+```
+
+And it should be ok. In order to acces other versions of elmer you can check it with the command 
+
+```
+module avail elmerfem
+```
+
+In order to get rid of the old module, you need to modify your .bashr or your config file
+
+In order to test it on a terminal:  this will not change the version you put on the .bashrc or config file, but only affects the terminal you are using
+
+```
+module unload elmerfem
+module load elmerfem/elmerfem-XXXXX
+or
+module switch old_module_name  new_module_name
+```
 
 
