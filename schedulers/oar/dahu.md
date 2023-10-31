@@ -316,10 +316,10 @@ https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/silenus/
 
 So If you need to save them, you have  to copy them to /bettik workdir for short term preservation(<1an), or to the Mantis2 cloud storage for long term preservation(<5ans).
 
-     >:warning:  if your files are only accessed in read mode, and you still use them, you
-     should do a `touch <file>` or `touch -r <directory>` to update the change time as
-     HPC scratches do not update the access time.
-     Otherwise, they may be deleted 60 days after their creation.
+>:warning:  if your files are only accessed in read mode, and you still use them, you
+            should do a `touch <file>` or `touch -r <directory>` to update the change time as
+            HPC scratches do not update the access time.
+            Otherwise, they may be deleted 60 days after their creation.
 
 
 Mantis is a cloud storage used for long term preservation
