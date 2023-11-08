@@ -365,7 +365,7 @@ https://gricad-doc.univ-grenoble-alpes.fr/hpc/data_management/mantis/
 
 **/home OR /bettik OR /silenus OR /mantis , how to choose**
 
-As the /home is backuped (saved), you should put here all your scripts, code in python/bash/fortran/R , etc that you need to keep. 
+**/home** you should put here all your scripts, code in python/bash/fortran/R and you should manage to save them (the /home is no longer saved) 
 You should also think about using github or [Gricad gitlab](https://gricad-gitlab.univ-grenoble-alpes.fr/users/sign_in) to commit you changes and keep your codes up to date
 
 **/bettik** should be used by default  for all your simulations as you have a large quota and your data is not cleaned.
