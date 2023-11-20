@@ -144,6 +144,7 @@ cd YOUR_WORKING_DIRECTORY
 micromamba activate Renv
 
 R CMD BATCH ....
+or
 Rscript ....
 
 ```
