@@ -191,9 +191,9 @@ cd /workdir/$USER/
 ## Run an Matlab
 
 module load matlab/R2022b
-srun --mpi=pmix -n 1 -c 4 -N 1  matlab -nodisplay -nosplash -nodesktop  -r MATLAB_command
-
-
+srun --mpi=pmix -n 1 -c 4 -N 1  matlab -nodisplay -nosplash -nodesktop  -r "MATLAB_command"
+OR
+srun --mpi=pmix -n 1 -c 4 -N 1  matlab -nodisplay -nosplash -nodesktop  -batch "MATLAB_command"
 ```
 
 4.  For Python users
