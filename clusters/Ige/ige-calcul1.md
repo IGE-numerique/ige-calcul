@@ -155,7 +155,7 @@ Run mpi hello example with 4 cores
 
 srun --mpi=pmix -n 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 hello_mpi
 
-Run Qgis with 8 threads
+Run Qgis with 8 threads (graphic interface)
 
 srun --mpi=pmix -n 1 -c 8 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 qgis
 
@@ -163,12 +163,39 @@ Run Jupiter notebook with 4 threads
 
 srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 jupyter notebook
 
-Run matlab  with 4 threads
+Run matlab  with 4 threads (graphic interafce)
 
 module load matlab/R2022b
-srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab -nojvm -nodesktop  
+srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab  
 
 ```
+Example of job_matlab.sh
+
+```
+#!/bin/bash
+#SBATCH -J matlab
+
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=4
+#SBATCH --account=cryodyn
+
+#SBATCH --mem=4000
+
+#SBATCH --time=01:00:00
+#SBATCH --output matlab.%j.output
+#SBATCH --error  matlab.%j.error
+
+
+cd /workdir/$USER/
+
+## Run an Matlab
+
+module load matlab/R2022b
+srun --mpi=pmix -n 1 -c 4 -N 1  matlab -nodisplay -nosplash -nodesktop  -r MATLAB_command
+
+
+```
+
 4.  For Python users
 
    You should use micromamba instead of conda/miniconda 
