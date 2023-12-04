@@ -163,10 +163,14 @@ Run Jupiter notebook with 4 threads
 
 srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 jupyter notebook
 
-Run matlab  with 4 threads (graphic interafce)
+Run matlab  with 4 threads
 
 module load matlab/R2022b
-srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab  
+srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab  -nodisplay -nosplash -nodesktop  -r "MATLAB_command"
+or
+srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab  -nodisplay -nosplash -nodesktop  -batch "MATLAB_command"
+or
+srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab  -nodisplay -nosplash -nodesktop < test.m
 
 ```
 Example of job_matlab.sh
@@ -192,8 +196,11 @@ cd /workdir/$USER/
 
 module load matlab/R2022b
 srun --mpi=pmix -n 1 -c 4 -N 1  matlab -nodisplay -nosplash -nodesktop  -r "MATLAB_command"
-OR
+or
 srun --mpi=pmix -n 1 -c 4 -N 1  matlab -nodisplay -nosplash -nodesktop  -batch "MATLAB_command"
+or
+srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab  -nodisplay -nosplash -nodesktop < test.m
+
 ```
 
 4.  For Python users
