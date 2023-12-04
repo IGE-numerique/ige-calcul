@@ -163,6 +163,11 @@ Run Jupiter notebook with 4 threads
 
 srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 jupyter notebook
 
+Run matlab  with 4 threads
+
+module load matlab/R2022b
+srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab -nojvm -nodesktop  
+
 ```
 4.  For Python users
 
