@@ -242,7 +242,7 @@ Once your job is finished or in case it stops without any reasons, you can check
 
 >:warning: **Replace MYJOBID with your JOBID**
 
-https://gricad-dashboards.univ-grenoble-alpes.fr/d/RUyeEaIGz/colmet-dahu-jobs-stats?orgId=1&refresh=1h&var-Job_ID=**MYJOBID**&var-Node=All
+https://gricad-dashboards.univ-grenoble-alpes.fr/d/RUyeEaIGz/colmet-dahu-jobs-stats?orgId=1&refresh=1h&var-Job_ID=**MYJOBID**&var-Node=All&from=now-24h&to=now
 
 Here is an example of Memory usage for different nodes
 
