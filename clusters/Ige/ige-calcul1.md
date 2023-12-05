@@ -50,7 +50,8 @@ Please send and email to `mondher.chekki@uXXXX-gYYYY-aZZZZ.fr OR ige-support@uXX
 | srun       | srun  -n $NBTASKS $EXE    |  Run jobs interactively  on the cluster    |
 | srun       | srun  --mpi=pmix -n $NBTASKS $EXE    |  Run MPI jobs on the cluster    |
 | scancel       |  scancel JOBID    | End or cancel a queued job.     |
-| sacct       |  sacct -j JOBID     | Show information about current and previous jobs.`      |
+| sacct       |  sacct -j JOBID     | Show information about current and previous jobs.      |
+| scontrol   | scontrol show job JOBID    | Show more details about a running job |
 | sinfo      |  sinfo    | Get information about the resources on available nodes that make up the HPC cluster      |
 
 
