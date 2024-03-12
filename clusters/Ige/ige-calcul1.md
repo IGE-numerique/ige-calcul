@@ -200,7 +200,7 @@ srun --mpi=pmix -n 1 -c 4 -N 1  matlab -nodisplay -nosplash -nodesktop  -r "MATL
 or
 srun --mpi=pmix -n 1 -c 4 -N 1  matlab -nodisplay -nosplash -nodesktop  -batch "MATLAB_command"
 or
-srun --mpi=pmix -n 1 -c 4 -N 1 --account=cryodyn --mem=4000 --time=01:00:00 matlab  -nodisplay -nosplash -nodesktop < test.m
+srun --mpi=pmix -n 1 -c 4 -N 1  matlab  -nodisplay -nosplash -nodesktop < test.m
 
 ```
 
