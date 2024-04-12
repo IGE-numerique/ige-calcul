@@ -213,13 +213,16 @@ srun --mpi=pmix -n 1 -c 4 -N 1  matlab  -nodisplay -nosplash -nodesktop < test.m
 ```
    # Download micromamba
 
-curl -L micro.mamba.pm/install.sh >install.sh
+   (replace $Install_Path with /workdir/$GROUP/$USER or any other large filesystem, ususally the $Home directory is too small)
 
-# Installation de micromamba
+  cd $Install_Path
+  curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 
-bash install.sh
+  # Init micromamba and install it
 
-source ~/.bashrc
+  ./bin/micromamba shell init -s bash -p $Install_Path/micromamba
+
+  source ~/.bashrc
 
 # Creation d’un environnment avec python=3.10
 
