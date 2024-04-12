@@ -191,7 +191,7 @@ Example of job_matlab.sh
 #SBATCH --error  matlab.%j.error
 
 
-cd /workdir/$USER/
+cd /workdir/$GROUP/$USER/
 
 ## Run an Matlab
 
@@ -213,16 +213,16 @@ srun --mpi=pmix -n 1 -c 4 -N 1  matlab  -nodisplay -nosplash -nodesktop < test.m
 ```
    # Download micromamba
 
-   (replace $Install_Path with /workdir/$GROUP/$USER or any other large filesystem, ususally the $Home directory is too small)
+Replace $Install_Path with /workdir/$GROUP/$USER or any other large filesystem, ususally the $Home directory is too small
 
-  cd $Install_Path
-  curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+cd $Install_Path
+curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 
-  # Init micromamba and install it
+# Init micromamba and install it
 
-  ./bin/micromamba shell init -s bash -p $Install_Path/micromamba
+./bin/micromamba shell init -s bash -p $Install_Path/micromamba
 
-  source ~/.bashrc
+source ~/.bashrc
 
 # Creation d’un environnment avec python=3.10
 
